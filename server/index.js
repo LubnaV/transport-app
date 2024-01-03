@@ -32,6 +32,26 @@ app.post("/login", async (req, res) => {
   }
 });
 
+app.post("/driverLogin", async (req, res) => {
+  try {
+    const { username, password } = req.body;
+    const driver = await DriverModel.findOne({ username: username });
+    if (!driver) {
+      return res.json("Driver not found");
+    }
+
+    if (driver.password !== password) {
+      return res.json("Password incorrect");
+    }
+
+    const token = jwt.sign({ driverId: driver._id }, SECRET_KEY);
+    res.json({ token });
+    
+  } catch (error) {
+    res.status(500).json({ error: "Error logging in" });
+  }
+});
+
 app.listen(3001, () => {
   console.log("server is running");
 });
