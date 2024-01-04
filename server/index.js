@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
 const { StudentModel } = require("./models/StudentModel");
+const { DriverModel } = require("./models/DriverModel");
 
 const SECRET_KEY = "secretkey";
 
@@ -26,7 +27,6 @@ app.post("/login", async (req, res) => {
 
     const token = jwt.sign({ studentId: student._id }, SECRET_KEY);
     res.json({ token });
-    
   } catch (error) {
     res.status(500).json({ error: "Error logging in" });
   }
@@ -46,8 +46,8 @@ app.post("/driverLogin", async (req, res) => {
 
     const token = jwt.sign({ driverId: driver._id }, SECRET_KEY);
     res.json({ token });
-    
   } catch (error) {
+    console.log(error);
     res.status(500).json({ error: "Error logging in" });
   }
 });
