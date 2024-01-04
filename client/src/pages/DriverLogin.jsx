@@ -36,16 +36,18 @@ function DriverLogin() {
         <div className="bottom">
           <form className="login-form">
             <div className="form-group">
-              <input type="text" className="form-control" placeholder="Username" onChange={(e) => setUsername(e.target.value)} />
+              <input type="text" className="form-control" placeholder="Enter Your Employee ID" onChange={(e) => setUsername(e.target.value)} />
             </div>
             <div className="form-group">
-              <input type="password" className="form-control" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
+              <input type="password" className="form-control" placeholder="Enter Your Password" onChange={(e) => setPassword(e.target.value)} />
             </div>
             <div className="form-group">
               <label className="checkbox-inline"><input type="checkbox" value="" /> Keep me signed in</label>
             </div>
             <button onClick={handleSubmit} className="btn btn-primary btn-block">Login</button>
-
+            <center>
+            <p>Not a driver? <a href='/'>Go Back</a></p>
+            </center>
           </form>
         </div>
       </div>

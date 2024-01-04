@@ -10,13 +10,14 @@ import QrCode from './pages/QrCode'
 import PastRides from './pages/PastRides'
 import Profile from './pages/Profile'
 import Background from './components/Background'
+import LandingPage from './pages/LandingPage'
 
 const App = () => {
   return (
   <>
   <Background/>
     <Routes>
-      <Route path='/' element={<Navigate to='/login' replace/>}/>
+      <Route path='/' element={<LandingPage/>}/>
       <Route path='/login' element={<Login/>}/>
       <Route path='/driverLogin' element={<DriverLogin/>}/>
       <Route path='/driverHome' element={<DriverHome/>}/>
