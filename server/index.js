@@ -73,6 +73,15 @@ async function authMiddleware(req, res, next) {
     return res.status(401).json({ message: "You are unauthorized" });
   }
   req.studentId = studentId;
+
+  const driverId = payload.driverId;
+
+  if (!driverId) {
+    console.log(3);
+    return res.status(401).json({ message: "You are unauthorized" });
+  }
+  req.driverId = driverId;
+
   next();
 }
 
@@ -89,6 +98,22 @@ app.get("/getProfile", authMiddleware, async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(500).json("Student not found");
+  }
+});
+
+app.get("/getDriverProfile", authMiddleware, async (req, res) => {
+  try {
+    const driverId = req.driverId; //getting back line 72
+    const driver = await DriverModel.findById(driverId); //find student document from database with ID
+
+    if (!driver) {
+      return res.status(404).json("Driver not found");
+    }
+
+    res.status(200).json(driver);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json("Driver not found");
   }
 });
 

@@ -2,8 +2,13 @@ import { useEffect, useState } from 'react'
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './Profile.css'
-
+import { useNavigate } from 'react-router-dom';
 function Profile() {
+  const navigate = useNavigate()
+  const logoutButton = () => {
+    localStorage.removeItem('token')
+    navigate('/')
+  }
   const [profile, setProfile] = useState(null) //profile is initially null, set after fetching from server
 
   //after rendering for the first time, the function in useEffect will take place
@@ -29,6 +34,7 @@ function Profile() {
   const username = profile.username
   const emirate = profile.emirate
   const pno = profile.phone_number
+
   return (
     <div>
       <div>
@@ -46,7 +52,7 @@ function Profile() {
           TEL: +971{pno} </p>
       </div>
       </div>
-      <div><button className="logout">SIGN OUT</button></div>
+      <div><button onClick={logoutButton} className="logout">SIGN OUT</button></div>
     </div>
   )
 }
