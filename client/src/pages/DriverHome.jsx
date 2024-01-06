@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import { Outlet, useNavigate } from 'react-router-dom';
-import Navbar from '../components/Navbar';
-
+import DriverNavbar from '../components/DriverNavbar'
 function DriverHome() {
   const navigate = useNavigate()
   
@@ -15,7 +14,7 @@ function DriverHome() {
   
   return (
     <div>
-    <Navbar />
+    <DriverNavbar />
       <div>
         <Outlet/>
       </div>

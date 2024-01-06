@@ -27,7 +27,19 @@
   margin-left: 26px;
 }
 
+.bi-card-checklist {
+  margin-left: 20px;
+}
+
+.bi-geo-alt {
+  margin-left: 6px;
+}
 .qr-code {
   margin-top: -23px;
+}
+
+.driver-qr-code {
+  margin-top: -23px;
+  margin-left: -1px;
 }
 
