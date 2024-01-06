@@ -67,21 +67,11 @@ async function authMiddleware(req, res, next) {
   }
 
   const studentId = payload.studentId;
-
   if (!studentId) {
     console.log(3);
     return res.status(401).json({ message: "You are unauthorized" });
   }
   req.studentId = studentId;
-
-  const driverId = payload.driverId;
-
-  if (!driverId) {
-    console.log(3);
-    return res.status(401).json({ message: "You are unauthorized" });
-  }
-  req.driverId = driverId;
-
   next();
 }
 
