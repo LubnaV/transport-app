@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const StudentSchema = new mongoose.Schema({
   names: String,
@@ -11,4 +11,5 @@ const StudentSchema = new mongoose.Schema({
   package: String
 });
 const StudentModel = mongoose.model("students", StudentSchema);
-exports.StudentModel = StudentModel;
+
+export {StudentModel}

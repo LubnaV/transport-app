@@ -9,7 +9,7 @@ function Account() {
     const token = localStorage.getItem('token')
     
     const fetchFromServer = async () => { 
-      const result = await axios.get('http://localhost:3001/getProfile', { //sending request from frontend to backend
+      const result = await axios.get('http://localhost:3001/profile', { //sending request from frontend to backend
       headers: { authorization: token } //setting headers with token
       });
 

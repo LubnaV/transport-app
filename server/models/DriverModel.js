@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const DriverSchema = new mongoose.Schema({
   username: String,
@@ -9,4 +9,5 @@ const DriverSchema = new mongoose.Schema({
   number_plate: String
 });
 const DriverModel = mongoose.model("drivers", DriverSchema);
-exports.DriverModel = DriverModel;
+
+export {DriverModel}

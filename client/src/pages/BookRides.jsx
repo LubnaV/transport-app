@@ -1,6 +1,9 @@
+
 function BookRides() {
   return (
-    <><div>Bla</div></>
+    <div className="submit-package">
+      
+    </div>
   )
 }
 
