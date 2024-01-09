@@ -12,7 +12,7 @@ function DriverLogin() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const result = await axios.post('http://localhost:3001/driverLogin', { username, password });
+      const result = await axios.post('http://localhost:3001/driver/login', { username, password });
       const token = result.data.token
       if(!token) {
         alert('Username or password is incorrect')
