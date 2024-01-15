@@ -8,7 +8,10 @@ const StudentSchema = new mongoose.Schema({
   latitude: Number,
   emirate: String,
   phone_number: String,
-  package: String
+  package: String,
+  rides: [{ 
+    type: mongoose.Schema.Types.ObjectId, 
+    ref: 'Ride' }]
 });
 const StudentModel = mongoose.model("students", StudentSchema);
 
